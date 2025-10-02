@@ -1,16 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('documentos')
+@Entity()
 export class Documento {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  nombre: string;
+  nombre: string;   // 👈 debe existir
 
   @Column()
-  ruta: string;
+  tipo: string;     // 👈 debe existir
 
-  @CreateDateColumn()
-  fecha: Date;
+  @Column()
+  ruta: string;     // 👈 debe existir (puede ser la URL o path del archivo)
 }

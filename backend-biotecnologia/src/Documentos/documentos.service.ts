@@ -7,15 +7,27 @@ import { Documento } from './documentos.entity';
 export class DocumentosService {
   constructor(
     @InjectRepository(Documento)
-    private documentosRepo: Repository<Documento>,
+    private readonly documentoRepo: Repository<Documento>,
   ) {}
 
-  async crear(nombre: string, ruta: string) {
-    const doc = this.documentosRepo.create({ nombre, ruta });
-    return this.documentosRepo.save(doc);
+  async guardarDocumento(nombre: string, tipo: string, ruta: string) {
+    const nuevoDocumento = this.documentoRepo.create({
+      nombre,
+      tipo,
+      ruta,
+    });
+    return await this.documentoRepo.save(nuevoDocumento);
   }
 
-  async listar() {
-    return this.documentosRepo.find();
+  async listarDocumentos() {
+    return await this.documentoRepo.find();
+  }
+
+  async obtenerDocumento(id: number) {
+    return await this.documentoRepo.findOne({ where: { id } });
+  }
+
+  async eliminarDocumento(id: number) {
+    return await this.documentoRepo.delete(id);
   }
 }
