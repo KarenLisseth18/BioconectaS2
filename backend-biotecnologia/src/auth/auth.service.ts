@@ -21,11 +21,12 @@ export class AuthService {
   }
 
   async login(user: any) {
-    const payload = { email: user.email, sub: user.id, rol: user.rol };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
-  }
+  const payload = { email: user.email, sub: user.id, rol: user.rol };
+  return {
+    access_token: this.jwtService.sign(payload),
+  };
+}
+
 
   async registrar(nombre: string, email: string, password: string) {
     const hashed = await bcrypt.hash(password, 10);

@@ -11,11 +11,7 @@ export class DocumentosService {
   ) {}
 
   async guardarDocumento(nombre: string, tipo: string, ruta: string) {
-    const nuevoDocumento = this.documentoRepo.create({
-      nombre,
-      tipo,
-      ruta,
-    });
+    const nuevoDocumento = this.documentoRepo.create({ nombre, tipo, ruta });
     return await this.documentoRepo.save(nuevoDocumento);
   }
 

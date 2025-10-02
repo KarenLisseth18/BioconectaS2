@@ -1,4 +1,3 @@
-// src/usuarios/usuarios.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -13,9 +12,10 @@ export class Usuarios {
   nombre: string;
 
   @Column()
-  password: string;  // <-- Esta propiedad faltaba
+  password: string;
 
-  @Column({ default: 'user' })  //  Nuevo campo: 'user' o 'admin'
-  rol: string;
+  @Column({ default: 'usuario' })  // 👈 rol por defecto
+  rol: 'admin' | 'usuario';
 }
+
 

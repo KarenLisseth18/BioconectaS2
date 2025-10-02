@@ -6,11 +6,11 @@ export class Documento {
   id: number;
 
   @Column()
-  nombre: string;   // 👈 debe existir
+  nombre: string;
 
   @Column()
-  tipo: string;     // 👈 debe existir
+  tipo: string;
 
   @Column()
-  ruta: string;     // 👈 debe existir (puede ser la URL o path del archivo)
+  ruta: string;
 }

@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { AuthModule } from './auth/auth.module';
-import { DocumentosModule } from './Documentos/documentos.module';
+import { DocumentosModule } from './Documentos/documentos.module'; // 👈 ojo: carpeta en minúsculas
 
 @Module({
   imports: [
